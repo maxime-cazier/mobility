@@ -1,5 +1,5 @@
 #pragma once
-#include "util.h"
+#include "obstacle.h"
 
 class Pieton{
     double x;
@@ -9,6 +9,8 @@ class Pieton{
     double vx;
     double vy;
     double e;
+    double ox;
+    double oy;
 public:
     Pieton();
     Pieton(double x, double y);
@@ -27,5 +29,9 @@ public:
 
 
 
-    void UpdatePos();
+    void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircleList);
+    void RectObsColl(RectangleObstacle Obs, bool& b);
+
+    void Draw();
+    void Erase();
 };
