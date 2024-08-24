@@ -29,7 +29,7 @@ public:
 
 
 
-    void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircleList);
+    void UpdatePos(RectangleObstacleList RectObs);
     void RectObsColl(RectangleObstacle Obs, bool& b);
 
     void Draw();

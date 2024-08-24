@@ -1,29 +1,17 @@
-#include "util.h"
-
-
-
-void __init__(){
-    Imagine::openWindow(512,512);
-}
-
-void __update__(){
-
-}
-
-void __draw__(){
-
-}
-
+#include "pieton.h"
+#include "iostream"
 
 
 
 int main(){
-    Imagine::noRefreshBegin();
-    __init__();
+    Imagine::openWindow(512,512);
+    Pieton p(200,200,10,5,3,3);
+    RectangleObstacleList RectObs = RectangleObstacleList();
     Imagine::Timer t;
     while(true){
-        __update__();
-        __draw__();
+        p.Draw();
+        p.UpdatePos(RectObs);
+        std::cout << p.get_x() ;
 
         double x = t.lap();
         if(x < 1/fps) Imagine::milliSleep(1000*(1/fps - x));

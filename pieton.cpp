@@ -37,11 +37,17 @@ double const Pieton::get_e(){
 
 
 
-void Pieton::UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircleList){
+void Pieton::UpdatePos(RectangleObstacleList RectObs){
+    ox = x;
+    oy = y;
     bool b = false;
     int i = 0;
     while((i < RectObs.get_N()) and (not(b))){
         RectObsColl(RectObs.get_ith_obstacle(i), b);
+    }
+    if(not(b)){
+        x += vx/fps;
+        y += vy/fps;
     }
 }
 
