@@ -25,5 +25,7 @@ public:
     double const get_vy();
     double const get_e();
 
+
+
     void UpdatePos();
 };
