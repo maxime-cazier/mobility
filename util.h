@@ -5,6 +5,12 @@
 
 const int fps = 1;
 
+const double tau=1/2;
+
+const double A_repuls=1;
+
+const double B_repuls=1;
+
 void intersection(double coor[8], double & t, double& u);
 
 double arg(double & x, double & y);

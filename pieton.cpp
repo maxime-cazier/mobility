@@ -1,4 +1,6 @@
 #include "pieton.h"
+#include "Direction.h"
+#include "util.h"
 
 
 
@@ -32,7 +34,13 @@ double const Pieton::get_e(){
     return e;
 }
 
+double const Pieton::get_vdesx(){
+    return vdesx;
+}
 
+double const Pieton::get_vdesy(){
+    return vdesy;
+}
 
 
 
@@ -185,3 +193,20 @@ void Pieton::Draw(){
 void Pieton::Erase(){
     Imagine::drawCircle(ox,oy,r,Imagine::WHITE);
 }
+
+direction Pieton::force_attrac(){
+    direction d(m/tau*(vdesx-vx),m/tau*(vdesy-vy));
+    return d;
+}
+
+direction Pieton::force_repuls(Pieton p_ext){
+    double dij_x, dij_y;
+    dij_x=x-p_ext.get_x();
+    dij_y=y-p_ext.get_y();
+    direction d(dij_x/std::sqrt(dij_x*dij_x+dij_y*dij_y),dij_y/std::sqrt(dij_x*dij_x+dij_y*dij_y));
+    return A_repuls*std::exp()*d;
+}
+
+
+
+
