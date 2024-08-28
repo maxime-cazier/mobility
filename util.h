@@ -3,7 +3,7 @@
 #include <cmath>
 #include <Imagine/Graphics.h>
 
-const int fps = 1;
+const double fps = 30.0;
 
 void intersection(double coor[8], double & t, double& u);
 

@@ -45,6 +45,8 @@ public:
 
     int const get_N();
     RectangleObstacle const get_ith_obstacle(int i);
+    RectangleObstacle* const get_L();
+    void draw();
 };
 
 

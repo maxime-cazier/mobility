@@ -24,8 +24,8 @@ RectangleObstacle::RectangleObstacle(){
     x = 0; y = 0; width = 0; height = 0;
 }
 
-RectangleObstacle::RectangleObstacle(double x, double y, double width, double height){
-    x = x; y = y; width = width; height = height;
+RectangleObstacle::RectangleObstacle(double X, double Y, double Width, double Height){
+    x = X; y = Y; width = Width; height = Height;
 }
 
 
@@ -68,9 +68,12 @@ void RectangleObstacleList::AddRectangleObstacle(double x, double y, double widt
     RectangleObstacle * newL = new RectangleObstacle[N];
     for(int i = 0; i < N - 1; i++){
         RectangleObstacle Obs = L[i] ;
-        newL[i] = RectangleObstacle(Obs.get_x(), Obs.get_y(), Obs.get_width(), Obs.get_height());
+        RectangleObstacle newObs = RectangleObstacle(Obs.get_x(), Obs.get_y(), Obs.get_width(), Obs.get_height());
+        newL[i] = newObs;
     }
-    newL[N-1] = RectangleObstacle(x,y,width,height);
+    RectangleObstacle newObs = RectangleObstacle(x,y,width,height);
+    newL[N-1] = newObs;
+    std::cout << newObs.get_width() << std::endl;
     delete[] L;
     L = newL;
 }
@@ -83,8 +86,17 @@ RectangleObstacle const RectangleObstacleList::get_ith_obstacle(int i){
     return L[i];
 }
 
+RectangleObstacle* const RectangleObstacleList::get_L(){
+    return L;
+}
 
 
+void RectangleObstacleList::draw(){
+    for(int c = 0; c<N; c++){
+        RectangleObstacle Obs = L[c];
+        Imagine::fillRect(Obs.get_x(),Obs.get_y(),Obs.get_width(),Obs.get_height(),Imagine::BLACK);
+    }
+}
 
 
 
@@ -113,3 +125,6 @@ int const CircleObstacleList::get_N(){
 CircleObstacle const CircleObstacleList::get_ith_obstacle(int i){
     return L[i];
 }
+
+
+

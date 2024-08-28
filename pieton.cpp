@@ -59,24 +59,24 @@ Pieton::Pieton(){
     x = 0; y = 0; r = 1; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
 }
 
-Pieton::Pieton(double x, double y){
-    x = x; y = y; r = 1; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
+Pieton::Pieton(double X, double Y){
+    x = X; y = Y; r = 1; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
 }
 
-Pieton::Pieton(double x, double y, double r){
-    x = x; y = y; r = r; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
+Pieton::Pieton(double X, double Y, double R){
+    x = X; y = Y; r = R; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
 }
 
-Pieton::Pieton(double x, double y, double r, double m){
-    x = x; y = y; r = r; m = m; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
+Pieton::Pieton(double X, double Y, double R, double M){
+    x = X; y = Y; r = R; m = M; vx = 0; vy = 0; e = 0; ox = -1; oy = -1;
 }
 
-Pieton::Pieton(double x, double y, double r, double m, double vx, double vy){
-    x = x; y = y; r = r; m = m; vx = vx; vy = vy; e = 0; ox = -1; oy = -1;
+Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY){
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = 0; ox = -1; oy = -1;
 }
 
-Pieton::Pieton(double x, double y, double r, double m, double vx, double vy, double e){
-    x = x; y = y; r = r; m = m; vx = vx; vy = vy; e = e; ox = -1; oy = -1;
+Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E){
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; ox = -1; oy = -1;
 }
 
 
