@@ -10,4 +10,5 @@ public:
     double get_d_y();
 };
 
-direction operator * (double k, direction d);
+direction operator* (double k, direction d);
+direction operator* (direction d, double k);

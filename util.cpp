@@ -15,7 +15,7 @@ void intersection(double coor[8], double & t, double & u){
 
 double arg(double & x, double & y){
     if(x < 0 and y == 0) return 3.141592;
-    else return 2*std::atan(y/(x+std::sqrt(x*x+y*y)));
+    else return -2*std::atan(y/(x+std::sqrt(x*x+y*y)));
 }
 
 void modify(double coor[8], double a, double b, double c, double d, double e, double f, double g, double h){
