@@ -45,13 +45,18 @@ double const Pieton::get_vdesy(){
 
 
 
-void Pieton::UpdatePos(RectangleObstacleList RectObs){
+void Pieton::UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs){
     ox = x;
     oy = y;
     bool b = false;
     int i = 0;
     while((i < RectObs.get_N())){
         RectObsColl(RectObs.get_ith_obstacle(i), b);
+        i++;
+    }
+    i = 0;
+    while((i < CircObs.get_N())){
+        CircleObsColl(CircObs.get_ith_obstacle(i), b);
         i++;
     }
     if(not(b)){
@@ -225,7 +230,19 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
     }
 }
 
-
+void Pieton::CircleObsColl(CircleObstacle Obs, bool &b){
+    double dirx = (x+vx/fps - Obs.get_x());
+    double diry = (y+vy/fps - Obs.get_y());
+    double argdir = arg(dirx,diry);
+    if(dirx*dirx + diry*diry <= (r+Obs.get_r())*(r+Obs.get_r())){
+        b = true;
+        x = Obs.get_x() + (r+Obs.get_r())*cos(argdir);
+        y = Obs.get_y() - (r+Obs.get_r())*sin(argdir);
+    }
+    else{
+        b = false;
+    }
+}
 
 void Pieton::Draw(){
     Imagine::drawCircle(x,y,r,Imagine::BLACK);

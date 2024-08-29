@@ -25,7 +25,7 @@ class CircleObstacle{
 public:
 
     CircleObstacle();
-    CircleObstacle(double x, double y, double r);
+    CircleObstacle(double X, double Y, double R);
 
     double const get_x();
     double const get_y();
@@ -61,4 +61,5 @@ public:
 
     int const get_N();
     CircleObstacle const get_ith_obstacle(int i);
+    void draw();
 };

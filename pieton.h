@@ -35,8 +35,9 @@ public:
     direction force_attrac();
     direction force_repuls(Pieton p_ext);
 
-    void UpdatePos(RectangleObstacleList RectObs);
+    void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs);
     void RectObsColl(RectangleObstacle Obs, bool& b);
+    void CircleObsColl(CircleObstacle Obs, bool& b);
 
     void Draw();
     void Erase();

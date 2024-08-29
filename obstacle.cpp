@@ -49,8 +49,8 @@ CircleObstacle::CircleObstacle(){
     x = 0; y = 0; r = 0;
 }
 
-CircleObstacle::CircleObstacle(double x, double y, double r){
-    x = x; y = y; r = r;
+CircleObstacle::CircleObstacle(double X, double Y, double R){
+    x = X; y = Y; r = R;
 }
 
 
@@ -124,6 +124,14 @@ int const CircleObstacleList::get_N(){
 
 CircleObstacle const CircleObstacleList::get_ith_obstacle(int i){
     return L[i];
+}
+
+
+void CircleObstacleList::draw(){
+    for(int i = 0; i < N; i++){
+        CircleObstacle Obs = L[i];
+        Imagine::fillCircle(Obs.get_x(),Obs.get_y(),Obs.get_r(),Imagine::BLACK);
+    }
 }
 
 
