@@ -35,14 +35,36 @@ public:
     direction force_attrac();
     direction force_repuls(Pieton p_ext);
 
-    void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs);
+
+    void change_x(double x);
+    void change_y(double y);
+    void change_vx(double vx);
+    void change_vy(double vy);
+
+    void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs, double addvx = 0, double addvy = 0);
     void RectObsColl(RectangleObstacle Obs, bool& b);
     void CircleObsColl(CircleObstacle Obs, bool& b);
+    void PietonColl(Pieton &p, RectangleObstacleList RectObs, CircleObstacleList CircObs);
 
     void Draw();
     void Erase();
 };
 
+
+class PietonList{
+    Pieton * L;
+    int N;
+public:
+
+    PietonList();
+
+    void AddPieton(double X=0, double Y=0, double R=0, double M=0, double VX=0, double VY=0, double E=0, double Vdes_x=0, double Vdes_y=0);
+
+    int const get_N();
+    Pieton const get_ith_pieton(int i);
+    void draw();
+    void Updatepos(RectangleObstacleList RectObs, CircleObstacleList CircObs);
+};
 
 
 
