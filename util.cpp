@@ -22,4 +22,6 @@ void modify(double coor[8], double a, double b, double c, double d, double e, do
     coor[0] = a; coor[1] = b; coor[2] = c; coor[3] = d; coor[4] = e; coor[5] = f; coor[6] = g; coor[7] = h;
 }
 
-
+double dist(double x1, double y1, double x2, double y2){
+    return std::sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+}
