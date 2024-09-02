@@ -8,6 +8,9 @@ public:
 
     double get_d_x();
     double get_d_y();
+
+    void change_x(double x);
+    void change_y(double y);
 };
 
 direction operator* (double k, direction d);

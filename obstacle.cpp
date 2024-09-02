@@ -73,7 +73,6 @@ void RectangleObstacleList::AddRectangleObstacle(double x, double y, double widt
     }
     RectangleObstacle newObs = RectangleObstacle(x,y,width,height);
     newL[N-1] = newObs;
-    std::cout << newObs.get_width() << std::endl;
     delete[] L;
     L = newL;
 }
@@ -97,6 +96,14 @@ void RectangleObstacleList::draw(){
         Imagine::fillRect(Obs.get_x(),Obs.get_y(),Obs.get_width(),Obs.get_height(),Imagine::BLACK);
     }
 }
+
+void RectangleObstacleList::draw_as_exit(){
+    for(int c = 0; c<N; c++){
+        RectangleObstacle Obs = L[c];
+        Imagine::fillRect(Obs.get_x(),Obs.get_y(),Obs.get_width(),Obs.get_height(),Imagine::GREEN);
+    }
+}
+
 
 
 
@@ -133,6 +140,9 @@ void CircleObstacleList::draw(){
         Imagine::fillCircle(Obs.get_x(),Obs.get_y(),Obs.get_r(),Imagine::BLACK);
     }
 }
+
+
+
 
 
 
