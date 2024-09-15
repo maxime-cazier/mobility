@@ -84,7 +84,6 @@ void Pieton::UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs
     int i = 0;
     while((i < RectObs.get_N()) and not(b)){
         RectObsColl(RectObs.get_ith_obstacle(i), b);
-        std::cout << b << std::endl;
         i++;
     }
     i = 0;
@@ -153,11 +152,11 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
     if(arg_vect <= - 1.570796327){
         modify(coor,x,vx/fps,y + r,vy/fps,Obs.get_x(),Obs.get_width(),Obs.get_y(),0);
         intersection(coor,t,u);
-        if(t > 1 or u > 1 or t < 0 or u < 0){
+        if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
             modify(coor,x - r,vx/fps,y,vy/fps,Obs.get_x()+Obs.get_width(),0,Obs.get_y(),Obs.get_height());
             intersection(coor,t,u);
-            if(t > 1 or u > 1 or t < 0 or u < 0){
+            if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
                 double dirx = (x+vx/fps - (Obs.get_width()+Obs.get_x()));
                 double diry = (y+vy/fps - Obs.get_y());
@@ -196,11 +195,11 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
         if(arg_vect <=0){
             modify(coor,x,vx/fps,y+r,vy/fps,Obs.get_x(),Obs.get_width(),Obs.get_y(),0);
             intersection(coor,t,u);
-            if(t > 1 or u > 1 or t < 0 or u < 0){
+            if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
                 modify(coor,x+r,vx/fps,y,vy/fps,Obs.get_x(),0,Obs.get_y(),Obs.get_height());
                 intersection(coor,t,u);
-                if(t > 1 or u > 1 or t < 0 or u < 0){
+                if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
                     double dirx = (x+vx/fps - (Obs.get_x()));
                     double diry = (y+vy/fps - Obs.get_y());
@@ -236,12 +235,12 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
             if(arg_vect <= 1.570796327){
                 modify(coor,x,vx/fps,y-r,vy/fps,Obs.get_x(),Obs.get_width(),Obs.get_y()+Obs.get_height(),0);
                 intersection(coor,t,u);
-                if(t > 1 or u > 1 or t < 0 or u < 0){
+                if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
 
                     modify(coor,x+r,vx/fps,y,vy/fps,Obs.get_x(),0,Obs.get_y(),Obs.get_height());
                     intersection(coor,t,u);
-                    if(t > 1 or u > 1 or t < 0 or u < 0){
+                    if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
 
                         double dirx = (x+vx/fps - (Obs.get_x()));
@@ -280,12 +279,12 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
             else{
                 modify(coor,x,vx/fps,y-r,vy/fps,Obs.get_x(),Obs.get_width(),Obs.get_y()+ Obs.get_height(),0);
                 intersection(coor,t,u);
-                if(t > 1 or u > 1 or t < 0 or u < 0){
+                if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
 
                     modify(coor,x-r,vx/fps,y,vy/fps,Obs.get_x()+Obs.get_width(),0,Obs.get_y(),Obs.get_height());
                     intersection(coor,t,u);
-                    if(t > 1 or u > 1 or t < 0 or u < 0){
+                    if(!(t <= 1 and u <= 1 and t >= 0 and u >= 0)){
 
 
                         double dirx = (x+vx/fps - (Obs.get_width()+Obs.get_x()));
@@ -347,22 +346,16 @@ void Pieton::PietonColl(Pieton & p, RectangleObstacleList RectObs, CircleObstacl
     double argdir = arg(dirx,diry);
     while(dirx*dirx + diry*diry <= (r+p.get_r())*(r+p.get_r()) - 0.01){
         double vtot = std::sqrt(vx*vx+vy*vy);
-        p.ox = p.x;
-        p.oy = p.y;
-        p.Erase();
-        double v2 = vx*vx + vy*vy;
-        p.change_vx(p.get_vx() - std::sqrt(m/p.get_m()*cos(argdir)*vtot);
-        p.change_vy(p.get_vy() + std::sqrt(m/p.get_m())*sin(argdir)*vtot);
+        p.UpdatePos(RectObs, CircObs, p.get_vx() - (std::cos(argdir)/std::abs(cos(argdir))*std::sqrt(m/p.get_m()*std::abs(cos(argdir))*vtot)), p.get_vy() + (std::sin(argdir)/std::abs(sin(argdir)))*std::sqrt(m/p.get_m()*std::abs(sin(argdir))*vtot));
 
 
-
-        p.UpdatePos(RectObs, CircObs, fps*(x - (r+p.get_r())*cos(argdir) - p.get_x()) - p.get_vx(), fps*(y + (r+p.get_r())*sin(argdir) - p.get_y()) - p.get_vy());
+        //p.UpdatePos(RectObs, CircObs, fps*(x - (r+p.get_r())*cos(argdir) - p.get_x()) - p.get_vx(), fps*(y + (r+p.get_r())*sin(argdir) - p.get_y()) - p.get_vy());
 
         dirx = (x - p.get_x());
         diry = (y - p.get_y());
         argdir = arg(dirx, diry);
 
-        p.Draw();
+
         vx=0;
         vy=0;
     }
@@ -455,26 +448,6 @@ direction Pieton::force_repuls_circle(CircleObstacle Obs){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-direction Pieton::force_repuls(Pieton p_ext){
-    double dij_x, dij_y;
-    dij_x=x-p_ext.get_x();
-    dij_y=y-p_ext.get_y();
-    direction d(dij_x/std::sqrt(dij_x*dij_x+dij_y*dij_y),dij_y/std::sqrt(dij_x*dij_x+dij_y*dij_y));
-    return A_repuls*(1/())*d;
-}
 
 
 PietonList::PietonList(){

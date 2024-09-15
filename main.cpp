@@ -5,6 +5,7 @@
 
 
 int main(){
+
     Imagine::openWindow(512,512);
     RectangleObstacleList RectObs = RectangleObstacleList();
     CircleObstacleList CircObs = CircleObstacleList();
@@ -20,12 +21,12 @@ int main(){
 
     Exit.AddRectangleObstacle(200,0,100,12);
 
-    //CircObs.AddCircleObstacle(200,200,100);
-    //for(int i = 0; i < 3 ; i ++){
-    //    for(int j = 0; j < 5; j++){
-    //        Piet.AddPieton(20 + 30*i, 300 + 30*i, std::rand()%10 + 5, std::rand()%10 + 5,0,0,0,std::rand()%20 + 5,0);
-    //    }
-    //}
+    CircObs.AddCircleObstacle(200,200,100);
+    for(int i = 0; i < 2 ; i ++){
+        for(int j = 0; j < 2; j++){
+            Piet.AddPieton(25 + 30*i, 300 + 30*j, std::rand()%10 + 5, std::rand()%10 + 5,0,0,0,std::rand()%20 + 5,0);
+        }
+    }
 
 
     //Piet.AddPieton(150,300,10,10,0,0,0,20,-20);

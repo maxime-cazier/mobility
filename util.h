@@ -3,7 +3,7 @@
 #include <cmath>
 #include <Imagine/Graphics.h>
 
-const double fps = 30.0;
+const double fps = 20.0;
 
 const double tau=1;
 
