@@ -10,8 +10,6 @@ class Pieton{
     double vx;
     double vy;
     double e;
-    double ox;
-    double oy;
     double vdesx;
     double vdesy;
 
@@ -75,6 +73,7 @@ public:
     Pieton const get_ith_pieton(int i);
     void delete_ith_pos(int i);
     void draw();
+    void erase();
     void Updatepos(RectangleObstacleList RectObs, CircleObstacleList CircObs, RectangleObstacleList Exit);
     void Updatespeed(RectangleObstacleList RectObs, CircleObstacleList);
 };

@@ -16,23 +16,28 @@ int main(){
     RectObs.AddRectangleObstacle(0,0,12,512);
     RectObs.AddRectangleObstacle(0,0,200,12);
     RectObs.AddRectangleObstacle(300,0,212,12);
-    RectObs.AddRectangleObstacle(0,500,512,12);
+
+    RectObs.AddRectangleObstacle(0,500,200,12);
+    RectObs.AddRectangleObstacle(300,500,212,12);
+
     RectObs.AddRectangleObstacle(500,0,12,512);
 
     Exit.AddRectangleObstacle(200,0,100,12);
+    //Exit.AddRectangleObstacle(200,500,100,12);
 
-    CircObs.AddCircleObstacle(200,200,100);
-    for(int i = 0; i < 2 ; i ++){
-        for(int j = 0; j < 2; j++){
-            Piet.AddPieton(25 + 30*i, 300 + 30*j, std::rand()%10 + 5, std::rand()%10 + 5,0,0,0,std::rand()%20 + 5,0);
-        }
-    }
+    //CircObs.AddCircleObstacle(250,250,20);
 
 
     //Piet.AddPieton(150,300,10,10,0,0,0,20,-20);
     //Piet.AddPieton(300,200,10,20,0,0,0,-20,0);
     //Piet.AddPieton(400,100,10,20,0,0,0,-20,0);
-    Piet.AddPieton(100,100,10,20,0,0,0,-20,0);
+
+    for(int i=0; i < 10; i++){
+        for(int j=0; j < 5; j++){
+            Piet.AddPieton(30 + 30*i,350 + 30*j,5+rand()%10,5+rand()%10,0,0,0,15+rand()%10,0);
+        }
+    }
+
     Imagine::Timer t;
     while(true){
         Piet.draw();

@@ -45,6 +45,8 @@ double const Pieton::get_vdesy(){
 
 
 
+
+
 void Pieton::change_x(double X){
     x = X;
 }
@@ -76,8 +78,6 @@ void Pieton::change_vdesy(double X){
 
 
 void Pieton::UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs, double addvx, double addvy){
-    ox = x;
-    oy = y;
     vx += addvx;
     vy += addvy;
     bool b = false;
@@ -113,32 +113,33 @@ void Pieton::UpdateVdes(double X, double Y){
 
 
 Pieton::Pieton(){
-    x = 0; y = 0; r = 1; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = 0; y = 0; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y){
-    x = X; y = Y; r = 1; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y, double R){
-    x = X; y = Y; r = R; m = 1; vx = 0; vy = 0; e = 0; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = R; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M){
-    x = X; y = Y; r = R; m = M; vx = 0; vy = 0; e = 0; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = R; m = M; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = 0; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; ox = -1; oy = -1; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E, double Vdesx, double Vdesy){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; ox = -1; oy = -1; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2;
 }
+
 
 
 
@@ -163,9 +164,6 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                 double argdir = arg(dirx,diry);
                 if(dirx*dirx + diry*diry <= r*r){
                     b = true;
-                    ox = x;
-                    oy = y;
-                    Erase();
                     x = Obs.get_width()+Obs.get_x() + r*cos(argdir) + 0.05;
                     y = Obs.get_y() - r*sin(argdir) - 0.05;
                 }
@@ -175,18 +173,12 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
             }
             else{
                 b = true;
-                ox = x;
-                oy = y;
-                Erase();
                 x += t*vx/fps + 1e-10;
                 y += vy/fps - 1e-10;
             }
         }
         else{
             b = true;
-            ox = x;
-            oy = y;
-            Erase();
             x += vx/fps + 1e-10;
             y += t*vy/fps - 1e-10;
         }
@@ -215,18 +207,12 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                 }
                 else{
                     b = true;
-                    ox = x;
-                    oy = y;
-                    Erase();
                     x += t*vx/fps - 1e-10;
                     y += vy/fps - 1e-10;
                 }
             }
             else{
                 b = true;
-                ox = x;
-                oy = y;
-                Erase();
                 x += vx/fps - 1e-10;
                 y += t*vy/fps - 1e-10;
             }
@@ -248,9 +234,6 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                         double argdir = arg(dirx,diry);
                         if(dirx*dirx + diry*diry <= r*r){
                             b = true;
-                            ox = x;
-                            oy = y;
-                            Erase();
                             x = Obs.get_x() + r*cos(argdir) - 0.05;
                             y = Obs.get_height()+Obs.get_y() - r*sin(argdir) + 0.05;
                         }
@@ -259,18 +242,12 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                         }
                     }
                     else{
-                        ox = x;
-                        oy = y;
-                        Erase();
                         b = true;
                         x += t*vx/fps - 1e-10;
                         y += vy/fps + 1e-10;
                     }
                 }
                 else{
-                    ox = x;
-                    oy = y;
-                    Erase();
                     b = true;
                     x += vx/fps - 1e-10;
                     y += t*vy/fps + 1e-10;
@@ -292,9 +269,6 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                         double argdir = arg(dirx,diry);
                         if(dirx*dirx + diry*diry <= r*r){
                             b = true;
-                            ox = x;
-                            oy = y;
-                            Erase();
                             x = Obs.get_width()+Obs.get_x() + r*cos(argdir) + 0.05;
                             y = Obs.get_height()+Obs.get_y() - r*sin(argdir) + 0.05;
                         }
@@ -304,9 +278,7 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                     }
                     else{
                         b = true;
-                        ox = x;
-                        oy = y;
-                        Erase();
+
                         x += t*vx/fps + 1e-10;
                         y += vy/fps + 1e-10;
                     }
@@ -314,9 +286,6 @@ void Pieton::RectObsColl(RectangleObstacle Obs, bool& b){
                 else{
 
                     b = true;
-                    ox = x;
-                    oy = y;
-                    Erase();
                     x += vx/fps + 1e-10;
                     y += t*vy/fps + 1e-10;
                 }
@@ -344,18 +313,11 @@ void Pieton::PietonColl(Pieton & p, RectangleObstacleList RectObs, CircleObstacl
     double dirx = (x - p.get_x());
     double diry = (y - p.get_y());
     double argdir = arg(dirx,diry);
-    while(dirx*dirx + diry*diry <= (r+p.get_r())*(r+p.get_r()) - 0.01){
-        double vtot = std::sqrt(vx*vx+vy*vy);
-        p.UpdatePos(RectObs, CircObs, p.get_vx() - (std::cos(argdir)/std::abs(cos(argdir))*std::sqrt(m/p.get_m()*std::abs(cos(argdir))*vtot)), p.get_vy() + (std::sin(argdir)/std::abs(sin(argdir)))*std::sqrt(m/p.get_m()*std::abs(sin(argdir))*vtot));
-
-
-        //p.UpdatePos(RectObs, CircObs, fps*(x - (r+p.get_r())*cos(argdir) - p.get_x()) - p.get_vx(), fps*(y + (r+p.get_r())*sin(argdir) - p.get_y()) - p.get_vy());
-
-        dirx = (x - p.get_x());
-        diry = (y - p.get_y());
-        argdir = arg(dirx, diry);
-
-
+    if(dirx*dirx + diry*diry <= (r+p.get_r())*(r+p.get_r()) - 0.01){
+        x = p.get_x() + (r+p.get_r())*cos(argdir);
+        y = p.get_y() - (r+p.get_r())*sin(argdir);
+        p.change_vx(1/(p.get_m()+m)*(p.get_vx()*(p.get_m()-m)+2*m*vx));
+        p.change_vy(1/(p.get_m()+m)*(p.get_vy()*(p.get_m()-m)+2*m*vy));
         vx=0;
         vy=0;
     }
@@ -366,7 +328,7 @@ void Pieton::Draw(){
 }
 
 void Pieton::Erase(){
-    Imagine::drawCircle(ox,oy,r,Imagine::WHITE);
+    Imagine::drawCircle(x,y,r,Imagine::WHITE);
 }
 
 direction Pieton::force_attrac(){
@@ -378,7 +340,7 @@ direction Pieton::force_repuls(Pieton p_ext){
     double dirx = (p_ext.get_x() - x);
     double diry = (p_ext.get_y() - y);
     double argdir = arg(dirx,diry);
-    double argv = arg(vx,vy);
+    double argv = arg(vdesx,vdesy);
     double difarg = argdir - argv;
 
     while(difarg > 3.1415926535) difarg -= 2*3.1415926535;
@@ -477,12 +439,18 @@ Pieton const PietonList::get_ith_pieton(int i){
 
 void PietonList::draw(){
     for(int i = 0; i < N; i++){
-        L[i].Erase();
         L[i].Draw();
     }
 }
 
+void PietonList::erase(){
+    for(int i = 0; i < N; i++){
+        L[i].Erase();
+    }
+}
+
 void PietonList::Updatepos(RectangleObstacleList RectObs, CircleObstacleList CircObs, RectangleObstacleList Exit){
+    erase();
     for(int i = 0; i < N; i++){
         L[i].UpdatePos(RectObs, CircObs);
         for(int j = 0; j < N; j++){
@@ -492,7 +460,7 @@ void PietonList::Updatepos(RectangleObstacleList RectObs, CircleObstacleList Cir
         }
 
 
-        RectangleObstacle Ex = Exit.get_ith_obstacle(0);
+        RectangleObstacle Ex = Exit.get_ith_obstacle(i%Exit.get_N());
         L[i].UpdateVdes(Ex.get_x()+Ex.get_width()/2, Ex.get_y()+Ex.get_height()/2);
         bool b = false;
         for(int j = 0; j < Exit.get_N(); j++){
@@ -505,6 +473,7 @@ void PietonList::Updatepos(RectangleObstacleList RectObs, CircleObstacleList Cir
             }
         }
     }
+    draw();
 }
 
 
@@ -525,12 +494,14 @@ void PietonList::Updatespeed(RectangleObstacleList RectObs, CircleObstacleList){
 
 void PietonList::delete_ith_pos(int i){
     N -= 1;
+    int k = 0;
     Pieton * newL = new Pieton[N];
     for(int j = 0; j < N + 1; j++){
-        if(not(i == j)){
+        if(!(i == j)){
             Pieton p = L[j] ;
-            newL[j] = Pieton(p.get_x(), p.get_y(), p.get_r(), p.get_m(), p.get_vx(),p.get_vy(),p.get_e(),p.get_vdesx(),p.get_vdesy());
+            newL[j-k] = Pieton(p.get_x(), p.get_y(), p.get_r(), p.get_m(), p.get_vx(),p.get_vy(),p.get_e(),p.get_vdesx(),p.get_vdesy());
         }
+        else k = 1;
     }
     delete[] L;
     L = newL;
