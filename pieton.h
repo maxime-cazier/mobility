@@ -64,6 +64,7 @@ public:
     Pieton const get_ith_pieton(int i);
     void draw();
     void Updatepos(RectangleObstacleList RectObs, CircleObstacleList CircObs);
+
 };
 
 
