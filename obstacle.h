@@ -47,6 +47,7 @@ public:
     RectangleObstacle const get_ith_obstacle(int i);
     RectangleObstacle* const get_L();
     void draw();
+    void draw_as_exit();
 };
 
 
@@ -63,3 +64,9 @@ public:
     CircleObstacle const get_ith_obstacle(int i);
     void draw();
 };
+
+
+
+
+
+

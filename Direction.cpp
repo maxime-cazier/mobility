@@ -17,3 +17,12 @@ direction operator*(double k, direction d){
     direction newdir(k*d.get_d_x(),k*d.get_d_y());
     return newdir;
 }
+
+
+void direction::change_x(double X){
+    d_x = X;
+}
+
+void direction::change_y(double Y){
+    d_y = Y;
+}
