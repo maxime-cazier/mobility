@@ -7,7 +7,7 @@ const double fps = 20.0;
 
 const double tau=1;
 
-const double A_repuls=100;
+const double A_repuls=150;
 
 const double B_repuls=100;
 

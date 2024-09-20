@@ -34,7 +34,7 @@ int main(){
 
     for(int i=0; i < 10; i++){
         for(int j=0; j < 5; j++){
-            Piet.AddPieton(30 + 30*i,350 + 30*j,5+rand()%10,5+rand()%10,0,0,0,15+rand()%10,0);
+            Piet.AddPieton(30 + 30*i,350 + 30*j,5+rand()%10,5+rand()%10,0,0,0,15+rand()%10,0,0,2*j);
         }
     }
 
