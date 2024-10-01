@@ -6,51 +6,51 @@
 
 
 
-double const Pieton::get_x(){
+double Pieton::get_x() const{
     return x;
 }
 
-double const Pieton::get_y(){
+double Pieton::get_y() const{
     return y;
 }
 
-double const Pieton::get_r(){
+double Pieton::get_r() const{
     return r;
 }
 
-double const Pieton::get_m(){
+double Pieton::get_m() const{
     return m;
 }
 
-double const Pieton::get_vx(){
+double Pieton::get_vx() const{
     return vx;
 }
 
-double const Pieton::get_vy(){
+double Pieton::get_vy() const{
     return vy;
 }
 
-double const Pieton::get_e(){
+double Pieton::get_e() const{
     return e;
 }
 
-double const Pieton::get_vdesx(){
+double Pieton::get_vdesx() const{
     return vdesx;
 }
 
-double const Pieton::get_vdesy(){
+double Pieton::get_vdesy() const{
     return vdesy;
 }
 
-double const Pieton::get_vlim(){
+double Pieton::get_vlim() const{
     return vlim;
 }
 
-double const Pieton::get_v0(){
+double Pieton::get_v0() const{
     return v0;
 }
 
-double const Pieton::get_m_app(){
+double Pieton::get_m_app() const{
     return m_app;
 }
 
@@ -87,7 +87,7 @@ void Pieton::change_v0(double new_v0){
     v0=new_v0;
 }
 
-void Pieton::change_m_app(douvle new_m_app){
+void Pieton::change_m_app(double new_m_app){
     m_app=new_m_app;
 }
 
@@ -130,35 +130,35 @@ void Pieton::UpdateVdes(double X, double Y){
 
 
 Pieton::Pieton(){
-    x = 0; y = 0; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, m_app=0;
+    x = 0; y = 0; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y){
-    x = X; y = Y; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = 1; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R){
-    x = X; y = Y; r = R; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = R; m = 1; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M){
-    x = X; y = Y; r = R; m = M; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = R; m = M; vx = 0; vy = 0; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = 0; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = 0; vdesy = 0; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E, double Vdesx, double Vdesy){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=0;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2, vlim=60.0, v0=20.0, m_app=10;
 }
 
 Pieton::Pieton(double X, double Y, double R, double M, double VX, double VY, double E, double Vdesx, double Vdesy, double Vlim, double V0){
-    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2, vlim=Vlim, v0=V0, m_app=0;
+    x = X; y = Y; r = R; m = M; vx = VX; vy = VY; e = E; vdesx = Vdesx; vdesy = Vdesy; anglevision = 3.1415926535/2, vlim=Vlim, v0=V0, m_app=10;
 }
 
 
@@ -335,15 +335,15 @@ void Pieton::PietonColl(Pieton & p, RectangleObstacleList RectObs, CircleObstacl
     if(dirx*dirx + diry*diry <= (r+p.get_r())*(r+p.get_r()) - 0.01){
         x = p.get_x() + (r+p.get_r())*cos(argdir);
         y = p.get_y() - (r+p.get_r())*sin(argdir);
-        p.change_vx(1/(p.get_m_app()+m)*(p.get_vx()*(p.get_m_app()-m)+2*m*vx));
-        p.change_vy(1/(p.get_m_app()+m)*(p.get_vy()*(p.get_m_app()-m)+2*m*vy));
+        p.change_vx(1/(p.get_m()+m)*(p.get_vx()*(p.get_m()-m)+2*m*vx));
+        p.change_vy(1/(p.get_m()+m)*(p.get_vy()*(p.get_m()-m)+2*m*vy));
         vx=0;
         vy=0;
     }
 }
 
 void Pieton::Draw(){
-    Imagine::drawCircle(x,y,r,Imagine::BLACK);
+    Imagine::drawCircle(x,y,r,Imagine::RED);
 }
 
 void Pieton::Erase(){
@@ -448,11 +448,11 @@ void PietonList::AddPieton(double X, double Y, double R, double M, double VX, do
     L = newL;
 }
 
-int const PietonList::get_N(){
+int PietonList::get_N() const{
     return N;
 }
 
-Pieton const PietonList::get_ith_pieton(int i){
+Pieton PietonList::get_ith_pieton(int i) const{
     return L[i];
 }
 
@@ -501,12 +501,12 @@ void PietonList::Updatespeed(RectangleObstacleList RectObs, CircleObstacleList){
     for(int i = 0; i < N; i++){
         L[i].change_vx(L[i].get_vx() + (L[i].force_attrac()).get_d_x()/fps);
         L[i].change_vy(L[i].get_vy() + (L[i].force_attrac()).get_d_y()/fps);
-        for(int j = 0; j < N; j++){
-            if(not(i == j)){
-                L[i].change_vx(L[i].get_vx() + L[i].force_repuls(L[j]).get_d_x()/fps);
-                L[i].change_vy(L[i].get_vy() + L[i].force_repuls(L[j]).get_d_y()/fps);
-            }
-        }
+        //for(int j = 0; j < N; j++){
+        //    if(not(i == j)){
+        //        L[i].change_vx(L[i].get_vx() + L[i].force_repuls(L[j]).get_d_x()/fps);
+        //        L[i].change_vy(L[i].get_vy() + L[i].force_repuls(L[j]).get_d_y()/fps);
+        //    }
+        //}
     }
 }
 

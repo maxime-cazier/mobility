@@ -1,19 +1,19 @@
 #include "obstacle.h"
 
 
-double const RectangleObstacle::get_x(){
+double RectangleObstacle::get_x() const{
     return x;
 }
 
-double const RectangleObstacle::get_y(){
+double RectangleObstacle::get_y() const{
     return y;
 }
 
-double const RectangleObstacle::get_width(){
+double RectangleObstacle::get_width() const{
     return width;
 }
 
-double const RectangleObstacle::get_height(){
+double RectangleObstacle::get_height() const{
     return height;
 }
 
@@ -31,15 +31,15 @@ RectangleObstacle::RectangleObstacle(double X, double Y, double Width, double He
 
 
 
-double const CircleObstacle::get_x(){
+double CircleObstacle::get_x() const{
     return x;
 }
 
-double const CircleObstacle::get_y(){
+double CircleObstacle::get_y() const{
     return y;
 }
 
-double const CircleObstacle::get_r(){
+double CircleObstacle::get_r() const{
     return r;
 }
 
@@ -77,15 +77,15 @@ void RectangleObstacleList::AddRectangleObstacle(double x, double y, double widt
     L = newL;
 }
 
-int const RectangleObstacleList::get_N(){
+int RectangleObstacleList::get_N() const{
     return N;
 }
 
-RectangleObstacle const RectangleObstacleList::get_ith_obstacle(int i){
+RectangleObstacle RectangleObstacleList::get_ith_obstacle(int i) const{
     return L[i];
 }
 
-RectangleObstacle* const RectangleObstacleList::get_L(){
+RectangleObstacle* RectangleObstacleList::get_L() const{
     return L;
 }
 
@@ -125,11 +125,11 @@ void CircleObstacleList::AddCircleObstacle(double x, double y, double r){
     L = newL;
 }
 
-int const CircleObstacleList::get_N(){
+int CircleObstacleList::get_N() const{
     return N;
 }
 
-CircleObstacle const CircleObstacleList::get_ith_obstacle(int i){
+CircleObstacle CircleObstacleList::get_ith_obstacle(int i) const{
     return L[i];
 }
 

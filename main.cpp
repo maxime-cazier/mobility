@@ -28,15 +28,15 @@ int main(){
     //CircObs.AddCircleObstacle(250,250,20);
 
 
-    //Piet.AddPieton(150,300,10,10,0,0,0,20,-20);
-    //Piet.AddPieton(300,200,10,20,0,0,0,-20,0);
-    //Piet.AddPieton(400,100,10,20,0,0,0,-20,0);
+    //Piet.AddPieton(250,400,10,10,0,0,0,20,0);
+    //Piet.AddPieton(250,100,10,40,0,0,0,20,0);
+    Piet.AddPieton(400,100,10,20,10,5,0,0,0);
 
-    for(int i=0; i < 10; i++){
-        for(int j=0; j < 5; j++){
-            Piet.AddPieton(30 + 30*i,350 + 30*j,5+rand()%10,5+rand()%10,0,0,0,15+rand()%10,0,0,2*j);
-        }
-    }
+    //for(int i=0; i < 10; i++){
+    //    for(int j=0; j < 5; j++){
+    //        Piet.AddPieton(30 + 30*i,350 + 30*j,5+rand()%10,5+rand()%10,0,0,0,15+rand()%10,0,0,20*j);
+    //    }
+    //}
 
     Imagine::Timer t;
     while(true){
@@ -44,7 +44,7 @@ int main(){
         RectObs.draw();
         CircObs.draw();
         Exit.draw_as_exit();
-        Piet.Updatespeed(RectObs,CircObs);
+        //Piet.Updatespeed(RectObs,CircObs);
 
 
 

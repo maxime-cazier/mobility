@@ -11,10 +11,10 @@ public:
   RectangleObstacle();
   RectangleObstacle(double x, double y, double width, double height);
 
-  double const get_x();
-  double const get_y();
-  double const get_width();
-  double const get_height();
+  double get_x() const;
+  double get_y() const;
+  double get_width() const;
+  double get_height() const;
 };
 
 
@@ -27,9 +27,9 @@ public:
     CircleObstacle();
     CircleObstacle(double X, double Y, double R);
 
-    double const get_x();
-    double const get_y();
-    double const get_r();
+    double get_x() const;
+    double get_y() const;
+    double get_r() const;
 
 };
 
@@ -43,9 +43,9 @@ public:
 
     void AddRectangleObstacle(double x, double y, double width, double height);
 
-    int const get_N();
-    RectangleObstacle const get_ith_obstacle(int i);
-    RectangleObstacle* const get_L();
+    int get_N() const;
+    RectangleObstacle get_ith_obstacle(int i) const;
+    RectangleObstacle* get_L() const;
     void draw();
     void draw_as_exit();
 };
@@ -60,8 +60,8 @@ public:
 
     void AddCircleObstacle(double x, double y, double r);
 
-    int const get_N();
-    CircleObstacle const get_ith_obstacle(int i);
+    int get_N() const;
+    CircleObstacle get_ith_obstacle(int i) const;
     void draw();
 };
 

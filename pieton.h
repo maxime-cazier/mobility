@@ -28,18 +28,18 @@ public:
     Pieton(double x, double y, double r, double m, double vx, double vy, double e, double vdesx, double vdesy);
     Pieton(double x, double y, double r, double m, double vx, double vy, double e, double vdesx, double vdesy,double vlim, double v0);
 
-    double const get_x();
-    double const get_y();
-    double const get_r();
-    double const get_m();
-    double const get_vx();
-    double const get_vy();
-    double const get_e();
-    double const get_vdesx();
-    double const get_vdesy();
-    double const get_vlim();
-    double const get_v0();
-    double const get_m_app();
+    double get_x() const;
+    double get_y() const;
+    double get_r() const;
+    double get_m() const;
+    double get_vx() const;
+    double get_vy() const;
+    double get_e() const;
+    double get_vdesx() const;
+    double get_vdesy() const;
+    double get_vlim() const;
+    double get_v0() const;
+    double get_m_app() const;
 
 
 
@@ -57,7 +57,7 @@ public:
     void change_m(double m, double e);
     void change_vlim(double new_vlim);
     void change_v0(double new_v0);
-    void change_m_app(douvle new_m_app);
+    void change_m_app(double new_m_app);
 
     void UpdatePos(RectangleObstacleList RectObs, CircleObstacleList CircObs, double addvx = 0, double addvy = 0);
     void UpdateVdes(double x, double y);
@@ -79,8 +79,8 @@ public:
 
     void AddPieton(double X=0, double Y=0, double R=0, double M=0, double VX=0, double VY=0, double E=0, double Vdes_x=0, double Vdes_y=0,double Vlim = 60,double V0=20);
 
-    int const get_N();
-    Pieton const get_ith_pieton(int i);
+    int get_N() const;
+    Pieton get_ith_pieton(int i) const;
     void delete_ith_pos(int i);
     void draw();
     void erase();
